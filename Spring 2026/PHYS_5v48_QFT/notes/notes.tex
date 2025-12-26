@@ -2,41 +2,53 @@
 Think about gauge dependence vs gauge invariance.}
 
 \end{presection}
+
 \begin{remarkbar}
 Berry-phase quantities often look gauge-dependent at first glance,
 but physical observables must be invariant.
 \end{remarkbar}
+
 \section{Berry Curvature}
+
 \subsection{Berry Connection}
+
 \begin{derivation}
 \mathbf A_n(\mathbf k)
 = i \langle u_n(\mathbf k) | \nabla_{\mathbf k} | u_n(\mathbf k) \rangle
 \end{derivation}
+
 \begin{equation}
 \Omega_n(\mathbf k)
 = \nabla_{\mathbf k} \times \mathbf A_n(\mathbf k)
 \end{equation}
+
 \begin{center}
 \includegraphics[width=0.6\linewidth]{../figures/1.png}
 \captionof{figure}{Berry curvature as an effective magnetic field in momentum space.}
 \label{fig:F25-L5-1}
 \end{center}
+
 \begin{theorem}
 The Berry curvature \(\Omega_n(\mathbf k)\) is gauge invariant.
 \end{theorem}
+
 \begin{lemma}
 Under a gauge transformation \( |u_n\rangle \to e^{i\phi(\mathbf k)}|u_n\rangle \),
 the Berry connection transforms as
 \(\mathbf A_n \to \mathbf A_n + \nabla_{\mathbf k}\phi\).
 \end{lemma}
+
 \begin{corollary}
 The curl of the Berry connection is unchanged under gauge transformations.
 \end{corollary}
+
 \begin{exercise}
 Show explicitly that \(\Omega_n = \nabla_{\mathbf k} \times \mathbf A_n\)
 is invariant under \( \mathbf A_n \to \mathbf A_n + \nabla_{\mathbf k}\phi \).
 \end{exercise}
+
 \begin{postsection}{Berry curvature plays the role of a magnetic field in momentum space.
 Its integral over the Brillouin zone gives a Chern number.}
 
 \end{postsection}
+
