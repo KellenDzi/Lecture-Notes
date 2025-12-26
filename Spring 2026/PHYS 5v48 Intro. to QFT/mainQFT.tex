@@ -1,0 +1,55 @@
+\documentclass[10pt,twocolumn]{article}
+
+\input{template}
+
+% ---------- Course metadata ----------
+\newcommand{\CourseName}{Quantum Mechanics II}
+\newcommand{\LectureTitle}{Lecture 5 -- Path Integrals}
+\newcommand{\CourseCode}{PHYS 6301}
+\newcommand{\Term}{Fall 2025}
+\newcommand{\Professor}{Prof.\ Mark Lee}
+
+% ---------- Title ----------
+\title{
+  \CourseCode: \CourseName \\[0.4ex]
+  \large \LectureTitle \\[0.4ex]
+  \normalsize \Term
+}
+
+\author{
+  \ProfessorName \\
+  \StudentName \\
+  \Department \\
+  \University \\
+}
+
+\date{Jan. 20th, 2026}
+
+\begin{document}
+
+\twocolumn[
+\maketitle
+
+\begin{center}
+\small
+\colorsquare{ExerciseBlue}\; Exercises \quad
+\colorsquare{LogicGreen}\; Theorems, Lemmas, Corollaries \quad
+\colorsquare{violet}\; Pre-Lecture \quad
+\colorsquare{black}\; Post-Lecture \quad
+\colorsquare{red}\; Remarks
+\end{center}
+
+\vspace{0.75em}
+]
+
+% ---------- Black TOC only ----------
+\begingroup
+\hypersetup{linkcolor=black}
+\let\clearpage\relax
+\tableofcontents
+\endgroup
+
+% ---------- Lecture Notes ----------
+\input{notes}
+
+\end{document}

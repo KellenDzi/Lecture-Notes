@@ -1,0 +1,219 @@
+% ================================
+% template.tex (PRL-like style)
+% ================================
+
+% ---------- Core packages ----------
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{microtype}
+\usepackage{mdframed}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+
+% ---------- Page geometry (PRL-like density) ----------
+\usepackage[
+  top=0.75in,
+  bottom=0.75in,
+  left=0.6in,
+  right=0.6in
+]{geometry}
+
+% ---------- Fonts (PRL-like) ----------
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+% ---------- Math ----------
+\usepackage{amsmath} % ← NO amssymb (important)
+
+% ---------- Two-column tuning ----------
+\setlength{\columnsep}{0.22in}
+
+% ---------- Section formatting ----------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\bfseries\large}
+  {\thesection.}{0.5em}{}
+\titleformat{\subsection}
+  {\bfseries}
+  {\thesubsection.}{0.5em}{}
+
+\titlespacing*{\section}{0pt}{1.2ex}{0.6ex}
+\titlespacing*{\subsection}{0pt}{1.0ex}{0.4ex}
+
+% ---------- Equation spacing ----------
+\numberwithin{equation}{section}
+\setlength{\jot}{4pt}
+\abovedisplayskip=6pt
+\belowdisplayskip=6pt
+\abovedisplayshortskip=4pt
+\belowdisplayshortskip=4pt
+\allowdisplaybreaks
+
+% ---------- Colors ----------
+\definecolor{ExerciseBlue}{RGB}{55,95,200}
+\definecolor{LogicGreen}{RGB}{60,120,60}
+\definecolor{BoxGray}{gray}{0.94}
+
+% ---------- Legend square ----------
+\newcommand{\colorsquare}[1]{%
+  \tikz\fill[#1] (0,0) rectangle (0.18,0.18);%
+}
+
+% ---------- Counters ----------
+\newcounter{exercise}
+\newcounter{theorem}
+\newcounter{lemma}
+\newcounter{corollary}
+
+% ---------- Exercise (BLUE) ----------
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{exercise}{
+  enhanced, breakable,
+  colback=BoxGray,
+  colframe=ExerciseBlue,
+  boxrule=0.8pt,
+  arc=4pt,
+  left=10pt,right=10pt,top=10pt,bottom=10pt,
+  before skip=10pt,after skip=10pt,
+  fonttitle=\bfseries,
+  coltitle=white,
+  attach boxed title to top left={yshift=-2mm,xshift=4mm},
+  boxed title style={colback=ExerciseBlue,boxrule=0pt,arc=4pt},
+  title={Exercise \theexercise},
+}
+\AtBeginEnvironment{exercise}{\refstepcounter{exercise}}
+
+% ---------- Theorem / Lemma / Corollary (GREEN) ----------
+\newtcolorbox{theorem}{
+  enhanced, breakable,
+  colback=BoxGray, colframe=LogicGreen,
+  boxrule=0.8pt, arc=4pt,
+  left=10pt,right=10pt,top=10pt,bottom=10pt,
+  before skip=10pt,after skip=10pt,
+  fonttitle=\bfseries, coltitle=white,
+  attach boxed title to top left={yshift=-2mm,xshift=4mm},
+  boxed title style={colback=LogicGreen,boxrule=0pt,arc=4pt},
+  title={Theorem \thetheorem},
+}
+\AtBeginEnvironment{theorem}{\refstepcounter{theorem}}
+
+\newtcolorbox{lemma}{
+  enhanced, breakable,
+  colback=BoxGray, colframe=LogicGreen,
+  boxrule=0.8pt, arc=4pt,
+  left=10pt,right=10pt,top=10pt,bottom=10pt,
+  before skip=10pt,after skip=10pt,
+  fonttitle=\bfseries, coltitle=white,
+  attach boxed title to top left={yshift=-2mm,xshift=4mm},
+  boxed title style={colback=LogicGreen,boxrule=0pt,arc=4pt},
+  title={Lemma \thelemma},
+}
+\AtBeginEnvironment{lemma}{\refstepcounter{lemma}}
+
+\newtcolorbox{corollary}{
+  enhanced, breakable,
+  colback=BoxGray, colframe=LogicGreen,
+  boxrule=0.8pt, arc=4pt,
+  left=10pt,right=10pt,top=10pt,bottom=10pt,
+  before skip=10pt,after skip=10pt,
+  fonttitle=\bfseries, coltitle=white,
+  attach boxed title to top left={yshift=-2mm,xshift=4mm},
+  boxed title style={colback=LogicGreen,boxrule=0pt,arc=4pt},
+  title={Corollary \thecorollary},
+}
+\AtBeginEnvironment{corollary}{\refstepcounter{corollary}}
+
+% ---------- Derivation (SAFE) ----------
+\newenvironment{derivation}
+  {\begin{equation}\begin{aligned}}
+  {\end{aligned}\end{equation}}
+
+% ---------- Math shortcuts ----------
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\grad}{\nabla}
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 \rvert}
+\newcommand{\braket}[2]{\langle #1 \mid #2 \rangle}
+
+% ---------- Identity ----------
+\newcommand{\ProfessorName}{Given by: Prof XXX XXX}
+\newcommand{\StudentName}{Written by: Kellen O'Keefe}
+\newcommand{\Department}{Department of Physics}
+\newcommand{\University}{University of Texas at Dallas}
+
+% ---------- Remark bar ----------
+\usepackage{mdframed}
+
+\newmdenv[
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linecolor=red,
+  linewidth=3pt,
+  innerleftmargin=8pt,
+]{remarkbar}
+
+% ---------- Pre/Post Lecture Sections ----------
+\newmdenv[
+  leftline=true,
+  rightline=false,
+  topline=false,
+  bottomline=false,
+  linecolor=violet,
+  linewidth=4pt,
+  innerleftmargin=12pt,
+]{presectionbox}
+
+\usepackage{xparse}
+
+\NewDocumentEnvironment{presection}{m}
+{%
+  \refstepcounter{section}%
+  \setcounter{subsection}{0}%
+
+  \section*{\thesection.\quad Pre-Lecture}
+  \addcontentsline{toc}{section}{\thesection.\quad Pre-Lecture}
+
+  \begin{mdframed}[
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linecolor=violet,
+    linewidth=4pt,
+    innerleftmargin=12pt,
+    skipabove=0pt,
+    skipbelow=12pt
+  ]
+}
+{%
+  \end{mdframed}
+}
+
+\NewDocumentEnvironment{postsection}{m}
+{%
+  \refstepcounter{section}%
+  \setcounter{subsection}{0}%
+
+  \section*{\thesection.\quad Post-Lecture}
+  \addcontentsline{toc}{section}{\thesection.\quad Post-Lecture}
+
+  \begin{mdframed}[
+    leftline=true,
+    rightline=false,
+    topline=false,
+    bottomline=false,
+    linecolor=black,
+    linewidth=4pt,
+    innerleftmargin=12pt,
+    skipabove=0pt,
+    skipbelow=12pt
+  ]
+}
+{%
+  \end{mdframed}
+}
