@@ -1,0 +1,89 @@
+\begin{presection}{Recall}
+Recall the geometric phase from adiabatic evolution.
+Connect Berry phases to parallel transport.
+
+Think about why global phases are unphysical
+but relative phases encode geometry.
+\end{presection}
+
+\begin{remarkbar}
+Adiabatic evolution assumes a spectral gap.
+Level crossings invalidate Berry-phase arguments.
+\end{remarkbar}
+
+\section{Geometric Phases in Quantum Mechanics}
+
+\subsection{Adiabatic Theorem Review}
+
+\begin{derivation}
+\text{Consider a Hamiltonian $H(\lambda(t))$ with instantaneous eigenstates} \\
+$H(\lambda)|n(\lambda)\rangle = E_n(\lambda)|n(\lambda)\rangle$. \\
+\text{Assume slow evolution such that transitions are suppressed.}
+\end{derivation}
+
+\begin{equation}
+|\psi(t)\rangle
+=
+e^{i\gamma_n(t)}
+e^{-\frac{i}{\hbar}\int_0^t E_n(t')dt'}
+|n(t)\rangle
+\end{equation}
+
+\begin{remarkbar}
+The dynamical phase depends on time,
+while the geometric phase depends only on the path.
+\end{remarkbar}
+
+\subsection{Berry Connection and Curvature}
+
+\begin{derivation}
+\mathbf A_n(\mathbf k)
+=
+i\langle u_n(\mathbf k)|\nabla_{\mathbf k}|u_n(\mathbf k)\rangle
+E:
+\Omega_n(\mathbf k)
+=
+\nabla_{\mathbf k}\times\mathbf A_n(\mathbf k)
+\end{derivation}
+
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figures/1.png}
+\captionof{figure}{Berry curvature visualized as a magnetic field in momentum space.}
+\label{fig:1}
+\end{center}
+
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figures/2.png}
+\captionof{figure}{Parallel transport of quantum states around a closed loop in parameter space.}
+\label{fig:2}
+\end{center}
+
+\begin{theorem}
+The Berry curvature $\Omega_n(\mathbf k)$ is gauge invariant.
+\end{theorem}
+
+\begin{lemma}
+Under a gauge transformation
+$|u_n\rangle\to e^{i\phi(\mathbf k)}|u_n\rangle$,
+the Berry connection transforms as
+$\mathbf A_n\to \mathbf A_n+\nabla_{\mathbf k}\phi$.
+\end{lemma}
+
+\begin{corollary}
+Physical observables depend only on $\Omega_n$,
+not on the choice of gauge.
+\end{corollary}
+
+\begin{exercise}
+Explicitly verify gauge invariance of $\Omega_n$
+under $\mathbf A_n\to \mathbf A_n+\nabla_{\mathbf k}\phi$.
+\end{exercise}
+
+\begin{postsection}{Berry}
+Berry curvature encodes global topology.
+Its integral over the Brillouin zone yields a Chern number.
+
+This topological invariant explains quantized Hall conductance
+and protects edge states from local perturbations.
+\end{postsection}
+
